@@ -1,0 +1,28 @@
+---
+- name: run apt-get update
+  apt: update_cache=yes cache_valid_time=3600
+
+- name: install bind
+  apt: name={{ item }} state=present
+  with_items:
+    - bind9
+    - bind9utils
+
+- name: set bind to ipv4 only
+  template:
+   src: bind9.j2
+   dest: /etc/default/bind9
+  notify: restart bind
+
+- name: create bind directories
+  file:
+    path: /etc/bind/zones
+    state: directory
+    owner: bind
+    group: bind
+    mode: 0755
+
+- name: start bind
+  service:
+    name: bind9
+    state: started

@@ -1,0 +1,12 @@
+# main includer
+---
+- hosts: home
+  become: True
+  roles:
+    - { role: base, tags: ['base', 'common'] }
+    - { role: bind, tags: ['bind'] }
+    - { role: plex, tags: ['plex'] }
+    - { role: transmission, tags: ['transmission'] }
+    - { role: jenkins, tags: ['jenkins'] }
+    - { role: nginx, tags: ['nginx'] }
+

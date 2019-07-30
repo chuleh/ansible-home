@@ -1,0 +1,18 @@
+---
+- name: run apt-get update
+  apt: update_cache=yes cache_valid_time=3600
+
+- name: install base apps
+  apt: name={{ item }} state=present
+  with_items:
+    - vim
+    - iotop
+    - htop
+    - screen
+    - rsync
+    
+- name: change sudoers file
+  template:
+    src: sudoers.j2
+    dest: /etc/sudoers
+    validate: '/usr/sbin/visudo -cf %s'
