@@ -1,4 +1,3 @@
 BIND
 =========
-
-Este rol instala BIND, crea zonas y directorios necesarios para bind.
+This role will install BIND. Creates zones and dirs necessary for bind to work.

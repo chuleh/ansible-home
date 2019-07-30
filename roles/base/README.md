@@ -1,3 +1,3 @@
 Common
 =========
-Este rol instala las aplicaciones base que no vienen por default.
+This role installs base apps that don't come by default.

@@ -1,3 +1,3 @@
 Transmission
 =========
-Este rol instala transmission-cli y copia los archivos de configuración.
+Role installs transmission-cli and copies needed config files
